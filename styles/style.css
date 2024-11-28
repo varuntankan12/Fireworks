@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100dvh;
+    background: #000;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+button {
+    position: absolute;
+    z-index: 10;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background: rgb(32, 43, 58);
+    color: #ffaa22;
+    cursor: pointer;
+}
