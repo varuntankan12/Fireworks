@@ -97,7 +97,7 @@ class ConfettiBombParticleType3 {
     }
 
     update() {
-        const distance = this.speed * (this.shell + 1);
+        const distance = this.speed * (this.shell + 1); 
         this.x += Math.cos(this.angle) * this.speed;
         this.y += Math.sin(this.angle) * this.speed;
         this.size += this.shell / 50;
@@ -107,7 +107,7 @@ class ConfettiBombParticleType3 {
 
     draw(ctx) {
         ctx.save();
-        ctx.globalAlpha = Math.max(this.opacity, 0);
+        ctx.globalAlpha = Math.max(this.opacity, 0); 
         ctx.fillStyle = this.color;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
@@ -138,7 +138,7 @@ class ConfettiBombParticleType4 {
 
     draw(ctx) {
         ctx.save();
-        ctx.globalAlpha = this.opacity;
+        ctx.globalAlpha = this.opacity; 
         ctx.fillStyle = this.color;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
@@ -214,12 +214,12 @@ const createConfettiParticles = (x, y) => {
         // console.log("type-2");
     } else if (type == 3) {
         // console.log("type-3");
-        const shellCount = Math.floor(Math.random() * 3 + 4);
+        const shellCount = Math.floor(Math.random() * 3 + 4); 
         const particleCount = Math.floor(Math.random() * 5 + 15);
-        const color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        const color = `hsl(${Math.random() * 360}, 100%, 50%)`; 
         for (let shell = 1; shell <= shellCount; shell++) {
             for (let i = 0; i < particleCount; i++) {
-                const angle = (2 * Math.PI / particleCount) * i;
+                const angle = (2 * Math.PI / particleCount) * i; 
                 particles.push(new ConfettiBombParticleType3(x, y, angle, color, shell));
             }
         }
@@ -227,12 +227,12 @@ const createConfettiParticles = (x, y) => {
         // console.log("type-4");
         const shellCount = Math.random() * 1 + 2;
         for (let shell = 1; shell <= shellCount; shell++) {
-            const particleCount = Math.random() * 20 + 30;
-            const color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            const particleCount = Math.random() * 20 + 30; 
+            const color = `hsl(${Math.random() * 360}, 100%, 50%)`; 
             for (let i = 0; i < particleCount; i++) {
 
-                const angle = (2 * Math.PI / particleCount) * i;
-                const speed = Math.random() * 3;
+                const angle = (2 * Math.PI / particleCount) * i; 
+                const speed = Math.random() * 3; 
                 particles.push(new ConfettiBombParticleType4(x, y, angle, speed, color, shell));
             }
         }
@@ -249,7 +249,7 @@ const animate = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles = particles.filter(p => p.opacity > 0.01);
 
-    if (Math.random() < 0.01) {
+    if (Math.random() < 0.03) {
         createConfettiBombs(Math.random() * (canvas.width - 200) + 100, canvas.height - 20);
     }
 
